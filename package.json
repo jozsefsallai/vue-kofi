@@ -1,6 +1,6 @@
 {
   "name": "vue-kofi",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "A Ko-fi.com widget component for Vue.js",
   "main": "src/index.js",
   "repository": {
