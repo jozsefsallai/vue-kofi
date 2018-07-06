@@ -1,0 +1,53 @@
+{
+  "name": "vue-kofi",
+  "version": "1.0.0",
+  "description": "A Ko-fi.com widget component for Vue.js",
+  "main": "src/index.js",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/jozsefsallai/vue-kofi"
+  },
+  "author": "József Sallai <jozsef@sallai.me>",
+  "license": "GPL-2.0",
+  "bugs": {
+    "url": "https://github.com/jozsefsallai/vue-kofi/issues"
+  },
+  "homepage": "https://github.com/jozsefsallai/vue-kofi#readme",
+  "keywords": [
+    "vue",
+    "vuejs",
+    "kofi",
+    "ko-fi",
+    "template",
+    "component",
+    "templating",
+    "javascript"
+  ],
+  "dependencies": {
+    "vue": "^2.5.16"
+  },
+  "devDependencies": {
+    "babel-core": "^6.0.0",
+    "babel-loader": "^6.0.0",
+    "babel-preset-env": "^1.5.1",
+    "cross-env": "^3.0.0",
+    "css-loader": "^0.25.0",
+    "eslint": "^4.19.1",
+    "eslint-config-standard": "^11.0.0",
+    "eslint-plugin-import": "^2.12.0",
+    "eslint-plugin-node": "^6.0.1",
+    "eslint-plugin-promise": "^3.8.0",
+    "eslint-plugin-standard": "^3.1.0",
+    "file-loader": "^0.11.2",
+    "node-sass": "^4.5.0",
+    "sass-loader": "^5.0.1",
+    "vue-loader": "^12.1.0",
+    "vue-template-compiler": "^2.3.3",
+    "webpack": "^2.6.1",
+    "webpack-dev-server": "^2.4.5"
+  },
+  "scripts": {
+    "build": "webpack",
+    "lint": "eslint src"
+  }
+}
