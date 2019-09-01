@@ -19,6 +19,12 @@ Yarn:
 yarn add vue-kofi
 ```
 
+Browser import:
+
+```html
+<script src="https://cdn.jsdelivr.net/npm/vue-kofi@1.1/dist/vue-kofi.js"></script>
+```
+
 ## Usage
 
 Import the component in your Vue mount script
@@ -27,7 +33,7 @@ Import the component in your Vue mount script
 import Vue from 'vue';
 import VueKofi from 'vue-kofi';
 
-Vue.use('vue-kofi');
+Vue.use(VueKofi);
 // ...
 ```
 
@@ -48,7 +54,7 @@ export default {
 Insert this into your template to display the button:
 
 ```html
-<vue-kofi uid="YOUR_ID"></vue-kofi>
+<vue-kofi uid="YOUR_ID" />
 ```
 
 ## Props

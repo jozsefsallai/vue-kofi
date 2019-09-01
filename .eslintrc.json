@@ -1,14 +1,22 @@
 {
-  "extends": "standard",
+  "extends": [
+    "standard",
+    "plugin:vue/base",
+    "plugin:vue/essential",
+    "plugin:vue/strongly-recommended",
+    "plugin:vue/recommended"
+  ],
   "rules": {
-    "comma-dangle": ["error", "never"],
-    "space-before-function-paren": ["error", {
-      "anonymous": "always",
-      "named": "never"
-    }],
-    "no-multi-spaces": "off",
-    "no-trailing-spaces": "off",
     "no-return-assign": "off",
-    "semi": ["error", "always"]
+    "semi": ["error", "always"],
+    "no-unused-expressions": "off",
+    "vue/name-property-casing": ["error", "kebab-case"],
+    "vue/require-default-prop": "off"
+  },
+  "env": {
+    "browser": true
+  },
+  "parserOptions": {
+    "ecmaVersion": 2017
   }
 }

@@ -1,72 +1,47 @@
+const VueLoaderPlugin = require('vue-loader/lib/plugin');
 const path = require('path');
-const webpack = require('webpack');
-
-const devtool = process.env.NODE_ENV === 'production'
-  ? 'source-map'
-  : 'eval-source-map';
-
-const plugins = [];
-
-if (process.env.NODE_ENV === 'production') {
-  plugins.push(
-    new webpack.DefinePlugin({
-      'process.env': { NODE_ENV: '"production"' }
-    }),
-    new webpack.optimize.UglifyJsPlugin({
-      sourceMap: true,
-      compress: { warnings: false }
-    }),
-    new webpack.LoaderOptionsPlugin({
-      minimize: true
-    })
-  );
-}
 
 module.exports = {
+  mode: 'production',
   entry: './src/index.js',
-  devtool,
+  devtool: 'source-map',
   output: {
     path: path.resolve(__dirname, 'dist'),
-    publicPath: '/dist/',
-    filename: 'build.js'
+    filename: 'vue-kofi.js',
+    sourceMapFilename: 'vue-kofi.map',
+    library: 'VueKofi',
+    libraryTarget: 'umd'
   },
   module: {
     rules: [
       {
         test: /\.vue$/,
-        loader: 'vue-loader',
-        options: {
-          loaders: {
-            'scss': 'vue-style-loader!css-loader!sass-loader',
-            'sass': 'vue-style-loader!css-loader!sass-loader?indentedSyntax'
-          }
-        }
+        use: [ { loader: 'vue-loader' } ]
       },
       {
         test: /\.js$/,
+        exclude: /node_modules/,
         loader: 'babel-loader',
-        exclude: /node_modules/
-      },
-      {
-        test: /\.(svg)$/,
-        loader: 'file-loader',
         options: {
-          name: '[name].[ext]?[hash]'
+          presets: [ 'babel-preset-env' ]
         }
       },
-    ]
+      {
+        test: /\.scss$/,
+        use: [
+          'vue-style-loader',
+          'css-loader',
+          'resolve-url-loader',
+          { loader: 'sass-loader', options: { sourceMap: true } }
+        ]
+      },
+      {
+        test: /\.svg$/,
+        loader: 'svg-inline-loader'
+      }
+    ],
   },
-  plugins,
-  resolve: {
-    alias: {
-      'vue$': 'vue/dist/vue.esm.js'
-    }
-  },
-  devServer: {
-    historyApiFallback: true,
-    noInfo: true
-  },
-  performance: {
-    hints: false
-  },
+  plugins: [
+    new VueLoaderPlugin()
+  ]
 };
